@@ -1,15 +1,24 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'e0736e3ac9cf5cd3fc89e4248787b8ce2eb5c1df',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'beberlei/assert' => array(
+            'pretty_version' => 'v3.3.3',
+            'version' => '3.3.3.0',
+            'reference' => 'b5fd8eacd8915a1b627b8bfc027803f1939734dd',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../beberlei/assert',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'brick/math' => array(
             'pretty_version' => '0.12.1',
             'version' => '0.12.1.0',
@@ -25,6 +34,15 @@
             'reference' => '99f76ffa36cce3b70a4a6abce41dba15ca2e84cb',
             'type' => 'library',
             'install_path' => __DIR__ . '/../carbonphp/carbon-doctrine-types',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'clue/stream-filter' => array(
+            'pretty_version' => 'v1.7.0',
+            'version' => '1.7.0.0',
+            'reference' => '049509fef80032cb3f051595029ab75b49a3c2f7',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../clue/stream-filter',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -102,6 +120,15 @@
             'install_path' => __DIR__ . '/../filp/whoops',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'firebase/php-jwt' => array(
+            'pretty_version' => 'v6.10.2',
+            'version' => '6.10.2.0',
+            'reference' => '30c19ed0f3264cb660ea496895cfb6ef7ee3653b',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../firebase/php-jwt',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'fruitcake/php-cors' => array(
             'pretty_version' => 'v1.3.0',
@@ -380,9 +407,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'e0736e3ac9cf5cd3fc89e4248787b8ce2eb5c1df',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -487,6 +514,24 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'mailersend/laravel-driver' => array(
+            'pretty_version' => 'v2.7.0',
+            'version' => '2.7.0.0',
+            'reference' => 'dd465077e89b903fe1dcc75c92203c7449ef57ee',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../mailersend/laravel-driver',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'mailersend/mailersend' => array(
+            'pretty_version' => 'v0.24.0',
+            'version' => '0.24.0.0',
+            'reference' => 'b8086404b78c8fa34683cf7ca9d0776eb08d080b',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../mailersend/mailersend',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'mockery/mockery' => array(
             'pretty_version' => '1.6.12',
             'version' => '1.6.12.0',
@@ -574,6 +619,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'nyholm/psr7' => array(
+            'pretty_version' => '1.8.2',
+            'version' => '1.8.2.0',
+            'reference' => 'a71f2b11690f4b24d099d6b16690a90ae14fc6f3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../nyholm/psr7',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'phar-io/manifest' => array(
             'pretty_version' => '2.0.4',
             'version' => '2.0.4.0',
@@ -591,6 +645,80 @@
             'install_path' => __DIR__ . '/../phar-io/version',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'php-http/async-client-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '*',
+                1 => '1.0',
+            ),
+        ),
+        'php-http/client-common' => array(
+            'pretty_version' => '2.7.2',
+            'version' => '2.7.2.0',
+            'reference' => '0cfe9858ab9d3b213041b947c881d5b19ceeca46',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../php-http/client-common',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'php-http/client-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '*',
+                1 => '1.0',
+            ),
+        ),
+        'php-http/discovery' => array(
+            'pretty_version' => '1.20.0',
+            'version' => '1.20.0.0',
+            'reference' => '82fe4c73ef3363caed49ff8dd1539ba06044910d',
+            'type' => 'composer-plugin',
+            'install_path' => __DIR__ . '/../php-http/discovery',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'php-http/guzzle7-adapter' => array(
+            'pretty_version' => '1.1.0',
+            'version' => '1.1.0.0',
+            'reference' => '03a415fde709c2f25539790fecf4d9a31bc3d0eb',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../php-http/guzzle7-adapter',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'php-http/httplug' => array(
+            'pretty_version' => '2.4.1',
+            'version' => '2.4.1.0',
+            'reference' => '5cad731844891a4c282f3f3e1b582c46839d22f4',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../php-http/httplug',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'php-http/message' => array(
+            'pretty_version' => '1.16.2',
+            'version' => '1.16.2.0',
+            'reference' => '06dd5e8562f84e641bf929bfe699ee0f5ce8080a',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../php-http/message',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'php-http/message-factory-implementation' => array(
+            'dev_requirement' => false,
+            'provided' => array(
+                0 => '1.0',
+            ),
+        ),
+        'php-http/promise' => array(
+            'pretty_version' => '1.3.1',
+            'version' => '1.3.1.0',
+            'reference' => 'fc85b1fba37c169a69a07ef0d5a8075770cc1f83',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../php-http/promise',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'phpoption/phpoption' => array(
             'pretty_version' => '1.9.3',
@@ -713,6 +841,7 @@
             'dev_requirement' => false,
             'provided' => array(
                 0 => '1.0',
+                1 => '*',
             ),
         ),
         'psr/http-factory' => array(
@@ -728,6 +857,7 @@
             'dev_requirement' => false,
             'provided' => array(
                 0 => '1.0',
+                1 => '*',
             ),
         ),
         'psr/http-message' => array(
@@ -743,6 +873,7 @@
             'dev_requirement' => false,
             'provided' => array(
                 0 => '1.0',
+                1 => '*',
             ),
         ),
         'psr/log' => array(
@@ -757,8 +888,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -1100,6 +1231,15 @@
             'reference' => '1de1cf14d99b12c7ebbb850491ec6ae3ed468855',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/mime',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/options-resolver' => array(
+            'pretty_version' => 'v7.2.0',
+            'version' => '7.2.0.0',
+            'reference' => '7da8fbac9dcfef75ffc212235d76b2754ce0cf50',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/options-resolver',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

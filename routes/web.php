@@ -28,6 +28,6 @@ Route::get('/contact', [PageController::class, 'contactusPage'])->name('contact'
 
 // Login page routes
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
+Route::get('/register', [AuthController::class, 'registerPage'])->name('register');
 

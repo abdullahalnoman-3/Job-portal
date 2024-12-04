@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\TokenVerificationMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,33 @@ Route::get('/about', [PageController::class, 'aboutusPage'])->name('about');
 Route::get('/contact', [PageController::class, 'contactusPage'])->name('contact');
 
 
-// Login page routes
+// Authentication Page Routes
 
 Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
 Route::get('/register', [AuthController::class, 'registerPage'])->name('register');
+Route::get('/send-otp', [AuthController::class, 'sendOtpPage'])->name('send-otp');
+Route::get('/verify-otp', [AuthController::class, 'verifyOtpPage'])->name('verify-otp');
+Route::get('/reset-password', [AuthController::class, 'resetPasswordPage'])->name('reset-password')
+    ->middleware(TokenVerificationMiddleware::class);
 
+
+
+Route::middleware(TokenVerificationMiddleware::class)->group(function () {
+
+    // Protected APIs
+
+    Route::get('/dashboard', [AuthController::class, 'dashboardPage']);
+
+    // Admin APIs
+    Route::middleware(['admin'])->group(function () {});
+
+
+
+    // Employer APIs
+    Route::middleware(['employer'])->group(function () {});
+
+
+
+    // User APIs
+    Route::middleware(['user'])->group(function () {});
+});

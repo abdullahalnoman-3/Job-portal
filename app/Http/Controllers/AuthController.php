@@ -164,8 +164,7 @@ class AuthController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'email' => ['required', 'email', Rule::unique('users')->ignore($request->header('id'))],
-                'firstName' => 'required|min:3|max:20|alpha|not_in:admin',
-                'lastName' => 'required|min:3|max:20|alpha|not_in:admin',
+                'fullName' => 'required|min:3|max:20|alpha|not_in:admin',
                 'mobile' => 'required|numeric|min_digits:11',
                 'password' => 'required|min:6'
             ]);
@@ -187,8 +186,7 @@ class AuthController extends Controller
 
             User::where('id', '=', $request->header('id'))->update([
                 'email' => $request->input('email'),
-                'firstName' => $request->input('firstName'),
-                'lastName' => $request->input('lastName'),
+                'fullName' => $request->input('fullName'),
                 'mobile' => $request->input('mobile'),
                 'password' => $request->input('password')
             ]);
@@ -201,24 +199,29 @@ class AuthController extends Controller
         }
     }
 
-    public function signUpPage()
+    public function loginPage()
     {
-        return view('pages.auth.sign-up-page');
+        return view('pages.login');
     }
 
-    public function sendOTPCodePage()
+    public function registerPage()
     {
-        return view('pages.auth.send-otp-page');
+        return view('pages.register');
     }
 
-    public function verifyOTPCodePage()
+    public function sendOTPPage()
     {
-        return view('pages.auth.verify-otp-page');
+        return view('pages.send-otp');
+    }
+
+    public function verifyOTPPage()
+    {
+        return view('pages.verify-otp');
     }
 
     public function resetPasswordPage()
     {
-        return view('pages.auth.reset-password-page');
+        return view('pages.reset-password');
     }
 
     public function dashboardPage(Request $request)
@@ -226,13 +229,13 @@ class AuthController extends Controller
         $role =  $request->header('role');
 
         if($role === 'admin'){
-            return view('pages.admin.dashboard-page');
+            return view('pages.admin.dashboard');
         }
-        else if($role === 'deliverer'){
-            return view('pages.deliverer.dashboard-page');
+        else if($role === 'employer'){
+            return view('pages.employer.dashboard');
         }
         else{
-            return view('pages.frontend.dashboard-page');
+            return view('pages.frontend.dashboard');
         }
     }
 
@@ -251,14 +254,5 @@ class AuthController extends Controller
     public function logout()
     {
         return redirect('/login')->cookie('token', '', -1);
-    }
-    
-    public function loginPage()
-    {
-        return view('pages.login');
-    }
-    public function registerPage()
-    {
-        return view('pages.register');
     }
 }

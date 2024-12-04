@@ -12,3 +12,31 @@ Route::post('send-otp-api', [AuthController::class, 'sendOTPCode']);
 Route::post('verify-otp-api', [AuthController::class, 'verifyOTP']);
 Route::post('reset-password-api', [AuthController::class, 'resetPassword'])
     ->middleware(TokenVerificationMiddleware::class);
+
+Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::middleware(TokenVerificationMiddleware::class)->group(function() {
+
+    // Protected APIs
+
+    
+    
+    // Admin APIs
+    Route::middleware(['admin'])->group(function() {
+        
+    });
+
+
+
+    // Employer APIs
+    Route::middleware(['employer'])->group(function() {
+
+    });
+
+
+
+    // User APIs
+    Route::middleware(['user'])->group(function() {
+
+    });
+});

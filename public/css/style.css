@@ -196,6 +196,10 @@ Nav bar start
     text-align: center;
 }
 
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: #6300b3;
+    font-weight: 600;
+}
 /*============================
 Nav bar end
 =============================*/
@@ -557,6 +561,25 @@ Login section start
     border-radius: 5px;
     height: 35px;
 }
+
+.login-show {
+    border: 1px solid #6a0dad;
+    background-color: #ffffff;
+    padding: 13px 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 0 5px 5px 0;
+
+}
+.login-show:hover {
+    background-color: #5a32a3;
+    color: #fff;
+}
+.login-input {
+    margin-right: 2px !important;
+}
+
+
 .btn-login {
     background-color: #6a0dad;
     color: #fff;
@@ -615,6 +638,10 @@ Login section start
 .illustration {
     max-width: 100%;
     height: auto;
+}
+
+.form-check-input:checked {
+    background-color: #6a0dad !important;
 }
 @media (max-width: 768px) {
     .login-container {
@@ -753,12 +780,16 @@ Find Job section start
     background-color: #5a32a3;
     color: #ffffff;
 }
+.experience-input {
+    margin-right: 10px !important;
+}
 .search-container .divider {
     height: 30px;
     width: 1px;
     background-color: #e0e0e0;
     margin: 0 15px;
 }
+
 @media (max-width: 768px) {
     .search-container {
         flex-direction: column;
@@ -920,11 +951,16 @@ Post a job section start
 .form-control::placeholder {
     color: #6c757d;
 }
+.form-control::file-selector-button {
+    padding: 15px 20px;
+    color: #2b3035;
+}
 #postJobForm .btn-primary {
     background-color: #6a0dad;
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 15px 20px;
     margin-top: 20px;
+    transition: all 0.3s ease;
 }
 #postJobForm .btn-primary:hover {
     background-color: #5a32a3;
@@ -1036,6 +1072,9 @@ About us section start
     background-color: #5a32a3;
     color: #ffffff;
 }
+#message {
+    height: 200px;
+}
 @media (max-width: 576px) {
     .break br {
         display: none !important;
@@ -1051,4 +1090,48 @@ About us section start
 
 /*=============================
 About us section end
+==============================*/
+
+/*=============================
+Send OTP section start
+==============================*/
+.send-otp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding-bottom: 200px !important;
+
+}
+.email-form {
+    background-color: #ffffff;
+    width: 400px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.email-form h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.email-form .btn {
+    background-color: #6a0dad;
+    color: #ffffff;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+}
+.email-form .btn:hover {
+    background-color: #5a32a3;
+}
+@media (max-width: 576px) {
+    .send-otp {
+        padding-bottom: 0 !important;
+
+    }
+}
+/*=============================
+Send OTP section end
 ==============================*/

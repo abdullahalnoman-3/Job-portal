@@ -10,7 +10,7 @@
             <div class="login-subheader">
                 Welcome back! Select the below login methods.
             </div>
-            <form>
+            {{-- <form> --}}
                 <div class="mb-4">
                     <label class="form-label" for="email">
                         Email ID / Username
@@ -24,14 +24,16 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="password"> Password </label>
-                    <div class="input-group">
+
+
+                    <div class="input-group align-items-center">
                         <input
-                            class="form-control"
+                            class="form-control login-input"
                             id="password"
                             placeholder="Enter password"
                             type="password"
                         />
-                        <button class="btn btn-outline-secondary" type="button">
+                        <button class="login-show" type="button">
                             Show
                         </button>
                     </div>
@@ -41,12 +43,12 @@
                     <label class="form-check-label" for="rememberMe">
                         Remember me
                     </label>
-                    <a class="forgot-password float-end mb-4" href="#">
+                    <a class="forgot-password float-end mb-4" href="{{route('send-otp')}}">
                         Forgot Password?
                     </a>
                 </div>
-                <button class="btn btn-login w-100" type="submit">Login</button>
-            </form>
+                <button onclick="SubmitLogin()" class="btn btn-login w-100" type="submit">Login</button>
+            {{-- </form> --}}
             <div class="divider">or login with</div>
             <div class="social-login">
                 <img
@@ -90,4 +92,31 @@
 <div id="login-bottom">
 
 </div>
+
+<script>
+    async function SubmitLogin(){
+        
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+
+        if(email.length === 0){
+            errorToast("Email is required !");
+        }
+        else if(password.length === 0){
+            errorToast("Password is required !");
+        }
+        else{
+
+            let res = await axios.post("/api/login-api", {email: email, password: password});
+
+            if(res.status === 200 && res.data['message'] === 'success'){
+                successToast(res.data['data']);
+                window.location.href = "/dashboard";
+            }
+            else{
+                errorToast(res.data['data']);
+            }
+        }
+    }
+</script>
 @endsection

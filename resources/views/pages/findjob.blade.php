@@ -35,9 +35,9 @@
                 <span class="input-group-text">
                     <i class="fas fa-briefcase" style="color: #5e6670;"></i>
                 </span>
-                    <input type="text" class="form-control" placeholder="Years of experience" aria-label="Location">
+                    <input type="text" class="form-control experience-input" placeholder="Years of experience" aria-label="Location">
                 </div>
-                <button class="btn">Search</button>
+                <button class="btn job-search-btn">Search</button>
             </div>
         </div>
 

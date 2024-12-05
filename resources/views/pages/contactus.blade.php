@@ -31,7 +31,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" id="message" rows="4" placeholder="Write your message"></textarea>
+                    <textarea class="form-control" id="message" rows="5" placeholder="Write your message"></textarea>
                 </div>
                 <button type="submit" class="btn contact-btn">Send Message</button>
             </form>

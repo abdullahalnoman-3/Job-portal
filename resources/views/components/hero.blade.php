@@ -27,7 +27,7 @@
                                     <span class="input-group-text"><i class="fas fa-map-marker-alt" style="color: #6a0dad;"></i></span>
                                     <input type="text" class="form-control" placeholder="Location" aria-label="Location">
                                 </div>
-                                <button class="btn hero-btn">Find Job</button>
+                                <button class="btn hero-btn mx-3">Find Job</button>
                             </div>
                         </div>
                         <!-- search container end -->

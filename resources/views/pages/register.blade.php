@@ -186,7 +186,7 @@
 
 
             <div class="form-check mb-5 mt-5">
-                <input class="form-check-input" id="updates" type="checkbox" />
+                <input class="form-check-input updates-checkbox" id="updates" type="checkbox" />
                 <label class="form-check-label" for="updates">
                     Send me important updates &amp; promotions via SMS, email, and
                     <i class="fab fa-whatsapp text-success"></i>

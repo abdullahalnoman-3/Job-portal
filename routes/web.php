@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin_dropdown_input;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
@@ -47,9 +48,7 @@ Route::middleware(TokenVerificationMiddleware::class)->group(function () {
     // Admin APIs
     Route::middleware(['admin'])->group(function () {
 
-        Route::get('/admin_db_input', function () {
-            return view('pages.admin.admin_db_input');
-        });
+        Route::get('/manage_job_lavel', [admin_dropdown_input::class, 'manage_job_lavel'])->name('manage_job_lavel');
         
 
 

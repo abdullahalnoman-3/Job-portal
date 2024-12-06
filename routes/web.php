@@ -49,6 +49,7 @@ Route::middleware(TokenVerificationMiddleware::class)->group(function () {
     Route::middleware(['admin'])->group(function () {
 
         Route::get('/manage_job_lavel', [admin_dropdown_input::class, 'manage_job_lavel'])->name('manage_job_lavel');
+        Route::post('/job_level_store', [admin_dropdown_input::class, 'job_level_store'])->name('job_level_store');
         
 
 

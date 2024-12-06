@@ -45,7 +45,15 @@ Route::middleware(TokenVerificationMiddleware::class)->group(function () {
     Route::get('/dashboard', [AuthController::class, 'dashboardPage']);
 
     // Admin APIs
-    Route::middleware(['admin'])->group(function () {});
+    Route::middleware(['admin'])->group(function () {
+
+        Route::get('/admin_db_input', function () {
+            return view('pages.admin.admin_db_input');
+        });
+        
+
+
+    });
 
 
 

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\citie;
+use App\Models\countrie;
 use App\Models\experience_level;
+use App\Models\Job_Role;
 use Illuminate\Http\Request;
 
 class admin_dropdown_input extends Controller
@@ -23,6 +26,74 @@ class admin_dropdown_input extends Controller
 
         // Redirect with Success Message
         return redirect()->back()->with('success', 'Job Level added successfully!');
+        // return ResponseHelper::Out('success', "Registration Completed Successfully !", 200);
+    }
+
+    // job role
+
+    function manage_job_role()
+    {
+
+        $jobroles = Job_Role::orderBy('id', 'desc')->get(); // ডিসেন্ডিং অর্ডারে ডেটা আনুন
+        return view("pages.admin.manage_job_role", compact('jobroles'));
+    }
+
+    function job_role_store(Request $request){
+        $name = $request->get('name');
+
+        // Insert into Database
+        Job_Role::create([
+            'job_role_name' => $name,
+        ]);
+
+        // Redirect with Success Message
+        return redirect()->back()->with('success', 'Job role added successfully!');
+        // return ResponseHelper::Out('success', "Registration Completed Successfully !", 200);
+    }
+
+    // country
+
+    function manage_country()
+    {
+
+        $countrye = countrie::orderBy('id', 'desc')->get(); // ডিসেন্ডিং অর্ডারে ডেটা আনুন
+        return view("pages.admin.manage_country", compact('countrye'));
+    }
+
+    function country_name_store(Request $request){
+        $name = $request->get('name');
+
+        // Insert into Database
+        countrie::create([
+            'country_name' => $name,
+        ]);
+
+        // Redirect with Success Message
+        return redirect()->back()->with('success', 'country name added successfully!');
+        // return ResponseHelper::Out('success', "Registration Completed Successfully !", 200);
+    }
+
+    function manage_city_name()
+    {
+
+        $countrye = countrie::orderBy('id', 'desc')->get(); // ডিসেন্ডিং অর্ডারে ডেটা আনুন
+
+        $cityname = citie::orderBy('id', 'desc')->get(); // ডিসেন্ডিং অর্ডারে ডেটা আনুন
+
+        return view("pages.admin.manage_city_name", compact('countrye','cityname'));
+        
+    }
+
+    function city_name_store(Request $request){
+        $name = $request->get('name');
+
+        // Insert into Database
+        citie::create([
+            'city_name' => $name,
+        ]);
+
+        // Redirect with Success Message
+        return redirect()->back()->with('success', 'city name added successfully!');
         // return ResponseHelper::Out('success', "Registration Completed Successfully !", 200);
     }
 }

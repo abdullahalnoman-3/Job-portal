@@ -48,9 +48,20 @@ Route::middleware(TokenVerificationMiddleware::class)->group(function () {
     // Admin APIs
     Route::middleware(['admin'])->group(function () {
 
+        // job lavel
+
         Route::get('/manage_job_lavel', [admin_dropdown_input::class, 'manage_job_lavel'])->name('manage_job_lavel');
         Route::post('/job_level_store', [admin_dropdown_input::class, 'job_level_store'])->name('job_level_store');
         
+        Route::get('/manage_job_role', [admin_dropdown_input::class, 'manage_job_role'])->name('manage_job_role');
+        Route::post('/job_role_store', [admin_dropdown_input::class, 'job_role_store'])->name('job_role_store');
+
+        Route::get('/manage_country', [admin_dropdown_input::class, 'manage_country'])->name('manage_country');
+        Route::post('/country_name_store', [admin_dropdown_input::class, 'country_name_store'])->name('country_name_store');
+
+
+        Route::get('/manage_city_name', [admin_dropdown_input::class, 'manage_city_name'])->name('manage_city_name');
+        Route::post('/city_name_store', [admin_dropdown_input::class, 'city_name_store'])->name('city_name_store');
 
 
     });

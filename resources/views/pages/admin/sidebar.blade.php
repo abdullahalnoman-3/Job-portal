@@ -18,15 +18,18 @@
       </a>
       <a href="/admin_db_input" style="display: block; text-decoration: none; color: white; padding: 15px 20px; font-weight: 600; background-color: transparent;">
         <i class="bi bi-people" style="margin-right: 10px;"></i> Dropdown input
-      </a>
-      <a href="#reports" style="display: block; text-decoration: none; color: white; padding: 15px 20px; font-weight: 600; background-color: transparent;">
-        <i class="bi bi-bar-chart" style="margin-right: 10px;"></i> Reports
-      </a>
-      <a href="#settings" style="display: block; text-decoration: none; color: white; padding: 15px 20px; font-weight: 600; background-color: transparent;">
-        <i class="bi bi-gear" style="margin-right: 10px;"></i> Settings
-      </a>
+      </a>     
       <a href="{{route('manage_job_lavel')}}" style="display: block; text-decoration: none; color: white; padding: 15px 20px; font-weight: 600; background-color: transparent;">
         <i class="bi bi-gear" style="margin-right: 10px;"></i> Manage Job Level
+      </a>
+      <a href="{{route('manage_job_role')}}" style="display: block; text-decoration: none; color: white; padding: 15px 20px; font-weight: 600; background-color: transparent;">
+        <i class="bi bi-gear" style="margin-right: 10px;"></i> Manage Job Role
+      </a>
+      <a href="{{route('manage_country')}}" style="display: block; text-decoration: none; color: white; padding: 15px 20px; font-weight: 600; background-color: transparent;">
+        <i class="bi bi-gear" style="margin-right: 10px;"></i> Manage Country
+      </a>
+      <a href="{{route('manage_city_name')}}" style="display: block; text-decoration: none; color: white; padding: 15px 20px; font-weight: 600; background-color: transparent;">
+        <i class="bi bi-gear" style="margin-right: 10px;"></i> Manage City
       </a>
     </div>
   </div>

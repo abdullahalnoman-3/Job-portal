@@ -12,38 +12,49 @@
     </nav>
 
     <div style="padding: 20px;">
-        <h1 style="margin-top: 20px;">Manage Job Level</h1>
+        <h1 style="margin-top: 20px;">Manage City Name</h1>
 
         <!-- Job Level Entry Form -->
         <div class="card" style="margin-top: 20px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-            <h3>Job Level Entry</h3>
-            <form action="{{ route('job_level_store') }}" method="POST">
+            <h3>City Name Entry</h3>
+            <form action="{{ route('city_name_store') }}" method="POST">
                 @csrf
                 <div class="mb-3">
-                    <label for="jobLevelName" class="form-label">Job Level Name</label>
-                    <input type="text" id="jobLevelName" name="name" class="form-control" placeholder="Enter job level name" required>
+                <label for="country_name" class="form-label">Country Name</label>
+                <select id="country_name" name="country" class="form-control" required>
+                    <option value="" disabled selected>Select a country</option>
+                    @foreach($countrye as $countrye)
+                        <option value="{{ $countrye->name }}">{{ $countrye->name }}</option>
+                    @endforeach
+                </select>
+
+
+
+                    <label for="city_name" class="form-label">Enter city name</label>
+                    <input type="text" id="city_name" name="name" class="form-control" placeholder="Enter city name" required>
+
                 </div>
-                <button type="submit" class="btn btn-primary">Add Job Level</button>
+                <button type="submit" class="btn btn-primary">Add city name</button>
             </form>
         </div>
 
         <!-- Job Level List -->
         <div class="card" style="margin-top: 30px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-            <h3>Job Level List</h3>
+            <h3>city Name List</h3>
             <table class="table table-bordered table-striped" style="margin-top: 20px;">
                 <thead class="table-dark">
                     <tr>
                         <th>#</th>
-                        <th>Job Level Name</th>
+                        <th>city Name</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Example rows (replace with dynamic data) -->
-                    @foreach ($jobLevels as $index => $jobLevel)
+                    @foreach ($cityname as $index => $cityname)
                         <tr>
                             <td>{{ $index + 1 }}</td>
-                            <td>{{ $jobLevel->job_level_name }}</td>
+                            <td>{{ $cityname->city_name }}</td>
                             <td>
                                 <!-- {{-- <a href="{{ route('job-level.edit', $jobLevel->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                 <form action="{{ route('job-level.destroy', $jobLevel->id) }}" method="POST" style="display: inline-block;">

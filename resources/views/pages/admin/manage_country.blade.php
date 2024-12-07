@@ -12,38 +12,38 @@
     </nav>
 
     <div style="padding: 20px;">
-        <h1 style="margin-top: 20px;">Manage Job Level</h1>
+        <h1 style="margin-top: 20px;">Manage Country Name</h1>
 
         <!-- Job Level Entry Form -->
         <div class="card" style="margin-top: 20px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-            <h3>Job Level Entry</h3>
-            <form action="{{ route('job_level_store') }}" method="POST">
+            <h3>Country Name Entry</h3>
+            <form action="{{ route('country_name_store') }}" method="POST">
                 @csrf
                 <div class="mb-3">
-                    <label for="jobLevelName" class="form-label">Job Level Name</label>
+                    <label for="jobLevelName" class="form-label">Enter country name</label>
                     <input type="text" id="jobLevelName" name="name" class="form-control" placeholder="Enter job level name" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Add Job Level</button>
+                <button type="submit" class="btn btn-primary">Add country name</button>
             </form>
         </div>
 
         <!-- Job Level List -->
         <div class="card" style="margin-top: 30px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-            <h3>Job Level List</h3>
+            <h3>Country Name List</h3>
             <table class="table table-bordered table-striped" style="margin-top: 20px;">
                 <thead class="table-dark">
                     <tr>
                         <th>#</th>
-                        <th>Job Level Name</th>
+                        <th>Country Name</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Example rows (replace with dynamic data) -->
-                    @foreach ($jobLevels as $index => $jobLevel)
+                    @foreach ($countrye as $index => $countrye)
                         <tr>
                             <td>{{ $index + 1 }}</td>
-                            <td>{{ $jobLevel->job_level_name }}</td>
+                            <td>{{ $countrye->country_name }}</td>
                             <td>
                                 <!-- {{-- <a href="{{ route('job-level.edit', $jobLevel->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                 <form action="{{ route('job-level.destroy', $jobLevel->id) }}" method="POST" style="display: inline-block;">

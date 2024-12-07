@@ -43,14 +43,9 @@
                     @foreach ($jobLevels as $index => $jobLevel)
                         <tr>
                             <td>{{ $index + 1 }}</td>
-                            <td>{{ $jobLevel->job_level_name }}</td>
+                            <td>{{ $jobLevel->experience_name }}</td>
                             <td>
-                                <!-- {{-- <a href="{{ route('job-level.edit', $jobLevel->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                                <form action="{{ route('job-level.destroy', $jobLevel->id) }}" method="POST" style="display: inline-block;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                                </form> --}} -->
+
                             </td>
                         </tr>
                     @endforeach

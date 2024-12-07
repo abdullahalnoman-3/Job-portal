@@ -21,12 +21,12 @@
                 @csrf
                 <div class="mb-3">
                 <label for="country_name" class="form-label">Country Name</label>
-                <select id="country_name" name="country" class="form-control" required>
-                    <option value="" disabled selected>Select a country</option>
-                    @foreach($countrye as $countrye)
-                        <option value="{{ $countrye->name }}">{{ $countrye->name }}</option>
+                    <select id="country_name" name="country_id" class="form-control" required>
+                        <option value="" disabled selected>Select a country</option>
+                    @foreach($countrye as $country)
+                        <option value="{{ $country->id }}">{{ $country->country_name }}</option>
                     @endforeach
-                </select>
+                    </select>
 
 
 
@@ -56,12 +56,7 @@
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $cityname->city_name }}</td>
                             <td>
-                                <!-- {{-- <a href="{{ route('job-level.edit', $jobLevel->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                                <form action="{{ route('job-level.destroy', $jobLevel->id) }}" method="POST" style="display: inline-block;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                                </form> --}} -->
+
                             </td>
                         </tr>
                     @endforeach

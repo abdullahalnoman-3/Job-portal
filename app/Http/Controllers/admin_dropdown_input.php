@@ -84,16 +84,22 @@ class admin_dropdown_input extends Controller
         
     }
 
-    function city_name_store(Request $request){
-        $name = $request->get('name');
-
-        // Insert into Database
-        citie::create([
-            'city_name' => $name,
+    public function city_name_store(Request $request)
+    {
+        // Validate the input
+        $request->validate([
+            'name' => 'required|string|max:255', // City name validation
+            'country_id' => 'required|exists:countries,id', 
         ]);
+    
 
-        // Redirect with Success Message
-        return redirect()->back()->with('success', 'city name added successfully!');
-        // return ResponseHelper::Out('success', "Registration Completed Successfully !", 200);
+        citie::create([
+            'city_name' => $request->name,
+            'country_id' => $request->country_id,
+        ]);
+    
+
+        return redirect()->back()->with('success', 'City name added successfully!');
     }
+    
 }

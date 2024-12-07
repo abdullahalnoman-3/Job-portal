@@ -51,9 +51,7 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="vacancies" class="form-label">Vacancies</label>
-                    <select class="form-select" id="vacancies">
-                        <option selected>Select...</option>
-                    </select>
+                    <input type="number" class="form-control"  placeholder="Vacancies available">
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="jobLevel" class="form-label">Job Level</label>

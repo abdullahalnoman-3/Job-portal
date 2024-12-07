@@ -1,7 +1,7 @@
-@extends('layout.app')
+@extends('layout.admin.admin_layout')
 @section('content')
 
-  
+
 
 <!-- Main Content -->
 <div id="page-content-wrapper" style="flex-grow: 1; overflow-x: hidden;">

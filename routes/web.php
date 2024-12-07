@@ -28,6 +28,12 @@ Route::get('/about', [PageController::class, 'aboutusPage'])->name('about');
 Route::get('/contact', [PageController::class, 'contactusPage'])->name('contact');
 
 
+
+Route::get('/employer2', [PageController::class, 'employer2Page'])->name('employers2');
+Route::get('/user', [PageController::class, 'userPage'])->name('user');
+
+
+
 // Authentication Page Routes
 
 Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
@@ -52,7 +58,7 @@ Route::middleware(TokenVerificationMiddleware::class)->group(function () {
 
         Route::get('/manage_job_lavel', [admin_dropdown_input::class, 'manage_job_lavel'])->name('manage_job_lavel');
         Route::post('/job_level_store', [admin_dropdown_input::class, 'job_level_store'])->name('job_level_store');
-        
+
         Route::get('/manage_job_role', [admin_dropdown_input::class, 'manage_job_role'])->name('manage_job_role');
         Route::post('/job_role_store', [admin_dropdown_input::class, 'job_role_store'])->name('job_role_store');
 

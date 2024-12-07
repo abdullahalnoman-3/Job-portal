@@ -123,6 +123,10 @@ footer a{
     font-size: 16px;
 }
 
+footer a:hover{
+    color: #6300B3;
+}
+
 footer h4{
     color: #6300B3;
     text-decoration: none;
@@ -199,6 +203,9 @@ Nav bar start
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
     color: #6300b3;
     font-weight: 600;
+}
+.navbar-nav .nav-link:hover {
+    color: #6300b3;
 }
 /*============================
 Nav bar end

@@ -35,4 +35,16 @@ class PageController extends Controller
     {
         return view('pages.contactus');
     }
+
+
+
+
+    public function employer2Page()
+    {
+        return view('pages.employer.employer_dash');
+    }
+    public function userPage()
+    {
+        return view('pages.user.user_dash');
+    }
 }

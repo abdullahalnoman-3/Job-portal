@@ -1,4 +1,4 @@
-@extends('layout.app',['title' => 'Admin'])
+@extends('layout.admin.admin_layout',['title' => 'Admin'])
 
 @section('content')
 

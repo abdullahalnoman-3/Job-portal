@@ -9,22 +9,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item mx-3">
+                <li class="nav-item mx-4">
                     <a class="nav-link {{ Route::currentRouteName() === 'home' ? 'active' : '' }}"
                         href="{{ route('home') }}">Home</a>
                 </li>
-                <li class="nav-item mx-3">
+                <li class="nav-item mx-4">
                     <a class="nav-link {{ Route::currentRouteName() === 'findjob' ? 'active' : '' }}"
                         href="{{ route('findjob') }}">Find Jobs</a>
                 </li>
-                <li class="nav-item mx-3">
+                <li class="nav-item mx-4">
                     <a class="nav-link {{ Route::currentRouteName() === 'employers' ? 'active' : '' }}"
                         href="{{ route('employers') }}">Employers</a>
                 </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link" href="#">Admin</a>
-                </li>
-                <li class="nav-item">
+{{--                <li class="nav-item mx-3">--}}
+{{--                    <a class="nav-link" href="#">Admin</a>--}}
+{{--                </li>--}}
+                <li class="nav-item mx-4">
                     <a class="nav-link {{ Route::currentRouteName() === 'about' ? 'active' : '' }}"
                         href="{{ route('about') }}">About Us</a>
                 </li>

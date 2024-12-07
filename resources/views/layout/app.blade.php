@@ -13,10 +13,11 @@
 <body>
 
 @include('layout.header')
-<div class="d-flex" id="wrapper" style="display: flex; flex-wrap: nowrap; height: 100vh;">
+<!-- <div class="d-flex" id="wrapper" style="display: flex; flex-wrap: nowrap; height: 100vh;">
     @include('pages.admin.sidebar')
-    @yield('content')
-</div>
+  
+</div> -->
+@yield('content')
 @include('layout.footer')
 
 

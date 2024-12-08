@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin_dropdown_input;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\PageController;
 use App\Http\Middleware\TokenVerificationMiddleware;
 
@@ -75,7 +76,16 @@ Route::middleware(TokenVerificationMiddleware::class)->group(function () {
 
 
     // Employer APIs
-    Route::middleware(['employer'])->group(function () {});
+    Route::middleware(['employer'])->group(function () {
+
+
+        Route::get('/job_post', [JobController::class, 'job_post'])->name('job_post');
+        Route::post('/job_post', [JobController::class, 'job_post_store'])->name('job_post_store');
+
+
+
+
+    });
 
 
 

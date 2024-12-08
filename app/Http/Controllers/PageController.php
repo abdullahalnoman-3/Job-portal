@@ -21,7 +21,7 @@ class PageController extends Controller
     }
     public function employerPage()
     {
-        return view('pages.employers');
+        return view('pages.job_post');
     }
     public function findJobPage()
     {

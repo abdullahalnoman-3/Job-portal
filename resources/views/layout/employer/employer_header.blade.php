@@ -19,7 +19,7 @@
                 </li>
                 <li class="nav-item mx-4">
                     <a class="nav-link {{ Route::currentRouteName() === 'Post a Job' ? 'active' : '' }}"
-                       href="{{ route('employers') }}">Post a Job</a>
+                       href="{{ route('job_post') }}">Post a Job</a>
                 </li>
                 {{--                <li class="nav-item mx-3">--}}
                 {{--                    <a class="nav-link" href="#">Admin</a>--}}

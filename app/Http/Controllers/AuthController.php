@@ -78,7 +78,6 @@ class AuthController extends Controller
         if ($user !== null) {
 
             $token = JWTToken::CreateToken($request->input('email'), $user->id, $user->role);
-
             return ResponseHelper::Out('success', "Login Successful !", 200)->cookie('token', $token, 60);
         } 
         else {

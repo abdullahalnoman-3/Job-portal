@@ -5,7 +5,7 @@
     <div class="container form-container my-5">
         <div class="form-title">Post a job</div>
         <div class="form-subtitle">Find the best talent for your company</div>
-        <form id="postJobForm" action="{{ route('job_post_store') }}">
+        <form id="postJobForm" method="post" action="{{ route('job_post_store') }}">
         @csrf
             <div class="mb-3">
                 <label for="jobTitle" class="form-label">Job Title</label>

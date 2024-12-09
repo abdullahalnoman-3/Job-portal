@@ -15,31 +15,31 @@
 
         <div style="padding: 50px;">
 
-        <div class="container">
-            <div class="search-container">
-                <div class="input-group">
-                <span class="input-group-text">
-                    <i class="fas fa-search" style="color: #5e6670;"></i>
-                </span>
-                    <input type="text" class="form-control" placeholder="Job title, Keyword..." aria-label="Job title, Keyword...">
-                </div>
-                <div class="divider"></div>
-                <div class="input-group">
-                <span class="input-group-text">
-                    <i class="fas fa-map-marker-alt" style="color: #5e6670;"></i>
-                </span>
-                    <input type="text" class="form-control" placeholder="Location" aria-label="Location">
-                </div>
+            <div class="container">
+                <div class="search-container">
+                    <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="fas fa-search" style="color: #5e6670;"></i>
+                    </span>
+                        <input type="text" class="form-control" placeholder="Job title, Keyword..." aria-label="Job title, Keyword...">
+                    </div>
+                    <div class="divider"></div>
+                    <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="fas fa-map-marker-alt" style="color: #5e6670;"></i>
+                    </span>
+                        <input type="text" class="form-control" placeholder="Location" aria-label="Location">
+                    </div>
 
-                <div class="input-group">
-                <span class="input-group-text">
-                    <i class="fas fa-briefcase" style="color: #5e6670;"></i>
-                </span>
-                    <input type="text" class="form-control experience-input" placeholder="Years of experience" aria-label="Location">
+                    <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="fas fa-briefcase" style="color: #5e6670;"></i>
+                    </span>
+                        <input type="text" class="form-control experience-input" placeholder="Years of experience" aria-label="Location">
+                    </div>
+                    <button class="btn job-search-btn">Search</button>
                 </div>
-                <button class="btn job-search-btn">Search</button>
             </div>
-        </div>
 
         </div>
 
@@ -234,56 +234,70 @@
                         </ul>
                     </div>
                 </div>
+
+                <!-- job card -->
+
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="job-card">
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <h5>Technical Support Specialist</h5>
-                                    <span class="badge bg-success">PART-TIME</span>
-                                    <p>Salary: 20,000 BDT - 25,000 BDT</p>
+                        @foreach ($jobs as $job)
+                            <div class="job-card">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h5>{{ $job->job_title }}</h5>
+                                        <span class="badge bg-success">PART-TIME</span>
+                                        
+                                        <p>Salary: {{ $job->min_salary }} BDT - {{ $job->max_salary	}} BDT</p>
+                                    </div>
+                                    <div>
+                                        <i class="far fa-bookmark"></i>
+                                    </div>
                                 </div>
-                                <div>
-                                    <i class="far fa-bookmark"></i>
+                                <div class="d-flex align-items-center mb-3">
+                                    <img alt="Google Inc. logo" class="company-logo me-2" height="40"
+                                        src="{{asset('/images/google.png')}}" width="40"/>
+                                    <div>
+                                        <p class="mb-0">
+                                            Google Inc.
+                                        </p>
+                                        <p class="text-muted mb-0">
+                                            <i class="fas fa-map-marker-alt">
+                                            </i>
+                                            New Delhi, India
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <img alt="Google Inc. logo" class="company-logo me-2" height="40"
-                                     src="{{asset('/images/google.png')}}" width="40"/>
-                                <div>
-                                    <p class="mb-0">
-                                        Google Inc.
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="applicants d-flex pr-2">
+                                        <img alt="Applicant 1" height="30" src="{{asset('/images/Ellipse 6.png')}}"
+                                            width="30"/>
+                                        <img alt="Applicant 2" height="30" src="{{asset('/images/Ellipse 7.png')}}"
+                                            width="30"/>
+                                        <img alt="Applicant 3" height="30" src="{{asset('/images/Ellipse 8.png')}}"
+                                            width="30"/>
+                                    </div>
+                                    <p class="mb-0 ms-2 px-2">
+                                        10+ applicants
                                     </p>
-                                    <p class="text-muted mb-0">
-                                        <i class="fas fa-map-marker-alt">
-                                        </i>
-                                        New Delhi, India
-                                    </p>
                                 </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="applicants d-flex pr-2">
-                                    <img alt="Applicant 1" height="30" src="{{asset('/images/Ellipse 6.png')}}"
-                                         width="30"/>
-                                    <img alt="Applicant 2" height="30" src="{{asset('/images/Ellipse 7.png')}}"
-                                         width="30"/>
-                                    <img alt="Applicant 3" height="30" src="{{asset('/images/Ellipse 8.png')}}"
-                                         width="30"/>
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-outline-primary">
+                                        View details
+                                    </button>
+                                    <button class="btn btn-primary">
+                                        Apply now
+                                    </button>
                                 </div>
-                                <p class="mb-0 ms-2 px-2">
-                                    10+ applicants
-                                </p>
+                            
                             </div>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-outline-primary">
-                                    View details
-                                </button>
-                                <button class="btn btn-primary">
-                                    Apply now
-                                </button>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
+
+
+
+
+
+
+
                     <div class="col-md-6">
                         <div class="job-card">
                             <div class="d-flex justify-content-between">
@@ -338,224 +352,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="job-card">
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <h5>
-                                        Marketing Officer
-                                    </h5>
-                                    <span class="badge bg-success">PART-TIME</span>
-                                    <p>
-                                        Salary: 10,000 BDT - 15,000 BDT
-                                    </p>
-                                </div>
-                                <div>
-                                    <i class="far fa-bookmark">
-                                    </i>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <img alt="Intel Corp logo" class="company-logo me-2" height="40"
-                                     src="{{asset('/images/intel.png')}}"
-                                     width="40"/>
-                                <div>
-                                    <p class="mb-0">
-                                        Intel Corp
-                                    </p>
-                                    <p class="text-muted mb-0">
-                                        <i class="fas fa-map-marker-alt">
-                                        </i>
-                                        Bangalore, India
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="applicants d-flex pr-2">
-                                    <img alt="Applicant 1" height="30" src="{{asset('/images/Ellipse 6.png')}}"
-                                         width="30"/>
-                                    <img alt="Applicant 2" height="30" src="{{asset('/images/Ellipse 7.png')}}"
-                                         width="30"/>
-                                    <img alt="Applicant 3" height="30" src="{{asset('/images/Ellipse 8.png')}}"
-                                         width="30"/>
-                                </div>
-                                <p class="mb-0 ms-2 px-2">
-                                    30+ applicants
-                                </p>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-outline-primary">
-                                    View details
-                                </button>
-                                <button class="btn btn-primary">
-                                    Apply now
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="job-card">
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <h5>
-                                        Senior UI/UX Designer
-                                    </h5>
-                                    <span class="badge bg-primary">FULL-TIME</span>
-                                    <p>
-                                        Salary: $30,000 - $55,000
-                                    </p>
-                                </div>
-                                <div>
-                                    <i class="far fa-bookmark">
-                                    </i>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <img alt="Apple logo" class="company-logo me-2" height="40"
-                                     src="{{asset('/images/apple-logo 1.png')}}"
-                                     width="40"/>
-                                <div>
-                                    <p class="mb-0">
-                                        Apple
-                                    </p>
-                                    <p class="text-muted mb-0">
-                                        <i class="fas fa-map-marker-alt">
-                                        </i>
-                                        Boston, USA
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="applicants d-flex pr-2">
-                                    <img alt="Applicant 1" height="30" src="{{asset('/images/Ellipse 6.png')}}"
-                                         width="30"/>
-                                    <img alt="Applicant 2" height="30" src="{{asset('/images/Ellipse 7.png')}}"
-                                         width="30"/>
-                                    <img alt="Applicant 3" height="30" src="{{asset('/images/Ellipse 8.png')}}"
-                                         width="30"/>
-                                </div>
-                                <p class="mb-0 ms-2 px-2">
-                                    9+ applicants
-                                </p>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-outline-primary">
-                                    View details
-                                </button>
-                                <button class="btn btn-primary">
-                                    Apply now
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="job-card">
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <h5>
-                                        Technical Support Specialist
-                                    </h5>
-                                    <span class="badge bg-success">PART-TIME</span>
-                                    <p>
-                                        Salary: 20,000 INR - 25,000 INR
-                                    </p>
-                                </div>
-                                <div>
-                                    <i class="far fa-bookmark">
-                                    </i>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <img alt="Google Inc. logo" class="company-logo me-2" height="40"
-                                     src="{{asset('/images/google.png')}}" width="40"/>
-                                <div>
-                                    <p class="mb-0">
-                                        Google Inc.
-                                    </p>
-                                    <p class="text-muted mb-0">
-                                        <i class="fas fa-map-marker-alt">
-                                        </i>
-                                        New Delhi, India
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="applicants d-flex pr-2">
-                                    <img alt="Applicant 1" height="30" src="{{asset('/images/Ellipse 6.png')}}"
-                                         width="30"/>
-                                    <img alt="Applicant 2" height="30" src="{{asset('/images/Ellipse 7.png')}}"
-                                         width="30"/>
-                                    <img alt="Applicant 3" height="30" src="{{asset('/images/Ellipse 8.png')}}"
-                                         width="30"/>
-                                </div>
-                                <p class="mb-0 ms-2 px-2">
-                                    10+ applicants
-                                </p>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-outline-primary">
-                                    View details
-                                </button>
-                                <button class="btn btn-primary">
-                                    Apply now
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="job-card">
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <h5>
-                                        Senior UI/UX Designer
-                                    </h5>
-                                    <span class="badge bg-primary">FULL-TIME</span>
-                                    <p>
-                                        Salary: $30,000 - $55,000
-                                    </p>
-                                </div>
-                                <div>
-                                    <i class="far fa-bookmark">
-                                    </i>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <img alt="Apple logo" class="company-logo me-2" height="40"
-                                     src="{{asset('/images/apple-logo 1.png')}}" width="40"/>
-                                <div>
-                                    <p class="mb-0">
-                                        Apple
-                                    </p>
-                                    <p class="text-muted mb-0">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        Boston, USA
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="applicants d-flex pr-2">
-                                    <img alt="Applicant 1" height="30" src="{{asset('/images/Ellipse 6.png')}}"
-                                         width="30"/>
-                                    <img alt="Applicant 2" height="30" src="{{asset('/images/Ellipse 7.png')}}"
-                                         width="30"/>
-                                    <img alt="Applicant 3" height="30" src="{{asset('/images/Ellipse 8.png')}}"
-                                         width="30"/>
-                                </div>
-                                <p class="mb-0 ms-2 px-2">
-                                    9+ applicants
-                                </p>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-outline-primary">
-                                    View details
-                                </button>
-                                <button class="btn btn-primary">
-                                    Apply now
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+
+
                 </div>
+
+
                 <div class="view-all">
                     <a href="#">
                         View More

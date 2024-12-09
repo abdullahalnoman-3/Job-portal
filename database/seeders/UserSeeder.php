@@ -13,16 +13,16 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
-            'full_name' => 'Noman',
-            'email' => 'noman@test.com',
-            'mobile' => '12345698752',
-            'password' => '123456',
-            'role' => 'admin',
-            'gender' => 'male',
-            'profile_picture' => 'none',
-            'company_name' => 'none',
-            'company_address' => 'none'
-        ]);
+        // User::create([
+        //     'full_name' => 'Noman',
+        //     'email' => 'noman@test.com',
+        //     'mobile' => '12345698752',
+        //     'password' => '123456',
+        //     'role' => 'admin',
+        //     'gender' => 'male',
+        //     'profile_picture' => 'none',
+        //     'company_name' => 'none',
+        //     'company_address' => 'none'
+        // ]);
     }
 }

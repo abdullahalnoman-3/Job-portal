@@ -23,10 +23,10 @@ class PageController extends Controller
     {
         return view('pages.job_post');
     }
-    public function findJobPage()
-    {
-        return view('pages.findjob');
-    }
+    // public function findJobPage()
+    // {
+    //     return view('pages.findjob');
+    // }
     public function aboutusPage()
     {
         return view('pages.aboutus');

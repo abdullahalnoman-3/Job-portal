@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin_dropdown_input;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FindJobController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\PageController;
 use App\Http\Middleware\TokenVerificationMiddleware;
@@ -70,6 +71,12 @@ Route::middleware(TokenVerificationMiddleware::class)->group(function () {
         Route::get('/manage_city_name', [admin_dropdown_input::class, 'manage_city_name'])->name('manage_city_name');
         Route::post('/city_name_store', [admin_dropdown_input::class, 'city_name_store'])->name('city_name_store');
 
+        Route::get('/manage_job_type', [admin_dropdown_input::class, 'manage_job_type'])->name('manage_job_type');
+        Route::post('/job_type_store', [admin_dropdown_input::class, 'job_type_store'])->name('job_type_store');
+       
+        Route::get('/manage_job_function', [admin_dropdown_input::class, 'manage_job_function'])->name('manage_job_function');
+        Route::post('/job_function_store', [admin_dropdown_input::class, 'job_function_store'])->name('job_function_store');
+
 
     });
 
@@ -90,5 +97,13 @@ Route::middleware(TokenVerificationMiddleware::class)->group(function () {
 
 
     // User APIs
-    Route::middleware(['user'])->group(function () {});
+    Route::middleware(['user'])->group(function () {
+
+
+        Route::get('/findjob', [FindJobController::class, 'jobs_data'])->name('findjob');
+
+
+
+
+    });
 });

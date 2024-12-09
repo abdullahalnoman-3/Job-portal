@@ -31,5 +31,11 @@
       <a href="{{route('manage_city_name')}}" style="display: block; text-decoration: none; color: white; padding: 15px 20px; font-weight: 600; background-color: transparent;">
         <i class="bi bi-gear" style="margin-right: 10px;"></i> Manage City
       </a>
+      <a href="{{route('manage_job_type')}}" style="display: block; text-decoration: none; color: white; padding: 15px 20px; font-weight: 600; background-color: transparent;">
+        <i class="bi bi-gear" style="margin-right: 10px;"></i> Manage Job Type
+      </a>
+      <a href="{{route('manage_job_function')}}" style="display: block; text-decoration: none; color: white; padding: 15px 20px; font-weight: 600; background-color: transparent;">
+        <i class="bi bi-gear" style="margin-right: 10px;"></i> Manage Job Function
+      </a>
     </div>
   </div>

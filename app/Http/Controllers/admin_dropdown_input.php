@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\citie;
 use App\Models\countrie;
 use App\Models\experience_level;
+use App\Models\job_functions;
 use App\Models\Job_Role;
+use App\Models\job_types;
 use Illuminate\Http\Request;
 
 class admin_dropdown_input extends Controller
@@ -50,6 +52,37 @@ class admin_dropdown_input extends Controller
         return redirect()->back()->with('success', 'Job role added successfully!');
         // return ResponseHelper::Out('success', "Registration Completed Successfully !", 200);
     }
+
+     // job type
+
+     function manage_job_type()
+     {
+         $jobtypes = job_types::orderBy('id', 'desc')->get(); // ডিসেন্ডিং অর্ডারে ডেটা আনুন
+         return view("pages.admin.manage_job_type", compact('jobtypes'));
+     }
+ 
+     function job_type_store(Request $request){
+         $name = $request->get('name');
+         job_types::create([
+             'job_type_name' => $name,
+         ]);
+         return redirect()->back()->with('success', 'Job type added successfully!');
+     }
+     //  job functions
+
+     function manage_job_function()
+     {
+         $jobfunctions = job_functions::orderBy('id', 'desc')->get(); // ডিসেন্ডিং অর্ডারে ডেটা আনুন
+         return view("pages.admin.manage_job_function", compact('jobfunctions'));
+     }
+ 
+     function job_function_store(Request $request){
+         $name = $request->get('name');
+         job_functions::create([
+             'name' => $name,
+         ]);
+         return redirect()->back()->with('success', 'Job function added successfully!');
+     }
 
     // country
 

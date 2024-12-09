@@ -17,7 +17,7 @@ class ApplyController extends Controller
     $userId = $request->header('id');
 
     $user = User::findOrFail($userId);
-    // যদি আপনি ভিউ রিটার্ন করতে চান
+   
     return view('pages.user.job_apply', compact('job','email','user'));
 }
 
@@ -26,12 +26,12 @@ class ApplyController extends Controller
 public function store(Request $request)
 {
     // Validate the form data
-    $request->validate([
-        'user_id' => 'required|exists:users,id',
-        'job_id' => 'required|exists:jobs,id',
-        'email' => 'required|email',
-        'cv' => 'required|file|mimes:pdf,doc,docx|max:2048',
-    ]);
+    // $request->validate([
+    //     'user_id' => 'required|exists:users,id',
+    //     'job_id' => 'required|exists:jobs,id',
+    //     'email' => 'required|email',
+    //     'cv' => 'required|file|mimes:pdf,doc,docx|max:2048',
+    // ]);
 
     // Handle file upload
     $cvPath = $request->file('cv')->store('cvs', 'public');

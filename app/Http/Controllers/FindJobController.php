@@ -27,4 +27,9 @@ class FindJobController extends Controller
 
         return view('pages.findjob', compact('jobs','cityname','countrye','jobtypes'));
     }
+
+
+
+
+    
 }

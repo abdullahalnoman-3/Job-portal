@@ -20,10 +20,10 @@ class AuthController extends Controller
         try {
 
             $validator = Validator::make($request->all(), [
-                'email' => 'required|email|unique:users',
                 'fullName' => 'required|min:3|max:20|alpha_dash|not_in:admin',
-                'mobile' => 'required|numeric|min_digits:11',
-                'password' => 'required|min:6'
+                'email' => 'required|email|unique:users',
+                'password' => 'required|min:6',
+                'mobile' => 'required|numeric|min_digits:11'
             ]);
 
             if ($validator->fails()) {
@@ -53,13 +53,11 @@ class AuthController extends Controller
             User::create([
                 'full_name' => $request->input('fullName'),
                 'email' => $request->input('email'),
-                'mobile' => $request->input('mobile'),
                 'password' => $request->input('password'),
-                'role' => $request->input('role'),
+                'mobile' => $request->input('mobile'),
+                'role' => $request->input('role') === 'employer' ? 'employer' : 'user',
                 'profile_picture' => $img_url,
-                'gender' => $request->input('gender'),
-                'company_name' => $request->input('role') === 'employer' ? $request->input('companyName') : 'none',
-                'company_website' => $request->input('role') === 'employer' ? $request->input('companyWeb') : 'none'
+                'gender' => $request->input('gender')
             ]);
 
             return ResponseHelper::Out('success', "Registration Completed Successfully !", 200);

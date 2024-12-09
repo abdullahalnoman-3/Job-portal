@@ -26,7 +26,9 @@ class JobController extends Controller
     {
     
     
-        $user = User::where('email', '=', $request->header('email'))->first();
+        // $user = User::where('email', '=', $request->header('email'))->first();
+        // $userEmail = $request->header('email');
+        // $userId = $request->header('id');
         // Directly insert into the database without validation
         Job::create([
 
@@ -41,8 +43,8 @@ class JobController extends Controller
             'country_id' => $request->input('country_id'),
             'city_id' => $request->input('city_id'),
             'description' => $request->input('jobDescription'),
-            'user_id' => $user->id, // Assuming the user is logged in
-            'contact_email' => $user->email ?? null, // Assuming user email
+            'user_id' => $request->header('id'), // Assuming the user is logged in
+            'contact_email' => $request->header('email') ?? null, // Assuming user email
         ]);
     
         return redirect()->back()->with('success', 'Job posted successfully!');

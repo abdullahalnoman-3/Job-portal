@@ -26,22 +26,22 @@ function topFunction() {
 
 
 //======== Registration type dropdown start =========
-var select = document.getElementById('type-select');
-var inputSection = document.getElementById('input-section');
+// var select = document.getElementById('type-select');
+// var inputSection = document.getElementById('input-section');
 
-// Add a change event listener to the <select> element
-select.addEventListener('change', function () {
-    if (select.value === "1") {
-        inputSection.style.display = 'none'; // Hide the section
-    } else if (select.value === "2") {
-        inputSection.style.display = 'block'; // Show the section
-    } else {
-        inputSection.style.display = 'none'; // Default to hidden
-    }
-});
+// // Add a change event listener to the <select> element
+// select.addEventListener('change', function () {
+//     if (select.value === "user") {
+//         inputSection.style.display = 'none'; // Hide the section
+//     } else if (select.value === "employer") {
+//         inputSection.style.display = 'block'; // Show the section
+//     } else {
+//         inputSection.style.display = 'none'; // Default to hidden
+//     }
+// });
 
 // Set initial state (hide inputs initially)
-inputSection.style.display = 'none';
+// inputSection.style.display = 'none';
 //======== Registration type dropdown end =========
 
 

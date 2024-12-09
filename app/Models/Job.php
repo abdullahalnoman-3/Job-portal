@@ -19,6 +19,7 @@ class Job extends Model
         'vacancies', 'work_mode_id',   
         'experience_level_id', 'country_id',   
         'city_id', 'description',   
-        'user_id', 'contact_email',   
+        'user_id', 'contact_email',  
+        'company_name', 'company_website', 
     ];
 }

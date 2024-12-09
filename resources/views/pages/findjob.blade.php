@@ -244,7 +244,7 @@
                                 <div class="d-flex justify-content-between">
                                     <div>
                                         <h5>{{ $job->job_title }}</h5>
-                                        <span class="badge bg-success">PART-TIME</span>
+                                        <span class="badge bg-success">{{ $job->job_type_id }}</span>
                                         
                                         <p>Salary: {{ $job->min_salary }} BDT - {{ $job->max_salary	}} BDT</p>
                                     </div>
@@ -257,7 +257,7 @@
                                         src="{{asset('/images/google.png')}}" width="40"/>
                                     <div>
                                         <p class="mb-0">
-                                            Google Inc.
+                                        {{ $job->company_name }}
                                         </p>
                                         <p class="text-muted mb-0">
                                             <i class="fas fa-map-marker-alt">

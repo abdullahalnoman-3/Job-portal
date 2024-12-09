@@ -91,8 +91,6 @@ Route::middleware(TokenVerificationMiddleware::class)->group(function () {
         Route::post('/job_post', [JobController::class, 'job_post_store'])->name('job_post_store');
 
 
-
-
     });
 
 
@@ -104,6 +102,9 @@ Route::middleware(TokenVerificationMiddleware::class)->group(function () {
         Route::get('/findjob', [FindJobController::class, 'jobs_data'])->name('findjob');
 
         Route::post('/apply_job', [ApplyController::class, 'applyForm'])->name('apply_job');
+        Route::post('/applyForm_store', [ApplyController::class, 'applyForm_store'])->name('applyForm_store');
+
+        Route::post('/apply', [ApplyController::class, 'store'])->name('apply_job');
 
 
 

@@ -4,7 +4,7 @@
 
 <div class="container mt-5">
     <h2 class="mb-4">Apply for {{ $job->job_title }}</h2>
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data" action="{{ route('apply_job') }}">
         @csrf
         <input type="hidden" name="user_id" value="{{ $user->id }}">
         <input type="hidden" name="job_id" value="{{ $job->id }}">

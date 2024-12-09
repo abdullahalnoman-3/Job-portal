@@ -22,4 +22,17 @@ class Job extends Model
         'user_id', 'contact_email',  
         'company_name', 'company_website', 
     ];
+    public function citie()
+        {
+            return $this->belongsTo(citie::class, 'city_id');
+        }
+    public function countrye()
+        {
+            return $this->belongsTo(countrie::class, 'country_id');
+        }
+    public function jobtypes()
+        {
+            return $this->belongsTo(job_types::class, 'job_type_id');
+        }
+
 }

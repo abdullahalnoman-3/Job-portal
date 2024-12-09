@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin_dropdown_input;
+use App\Http\Controllers\ApplyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FindJobController;
@@ -101,6 +102,10 @@ Route::middleware(TokenVerificationMiddleware::class)->group(function () {
 
 
         Route::get('/findjob', [FindJobController::class, 'jobs_data'])->name('findjob');
+
+        Route::post('/apply_job', [ApplyController::class, 'applyForm'])->name('apply_job');
+
+
 
 
 

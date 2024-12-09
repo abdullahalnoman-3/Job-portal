@@ -238,13 +238,14 @@
                 <!-- job card -->
 
                 <div class="row">
+                @foreach ($jobs as $job)
                     <div class="col-md-6">
-                        @foreach ($jobs as $job)
+                        
                             <div class="job-card">
                                 <div class="d-flex justify-content-between">
                                     <div>
                                         <h5>{{ $job->job_title }}</h5>
-                                        <span class="badge bg-success">{{ $job->job_type_id }}</span>
+                                        <span class="badge bg-success">{{ $job->jobtypes->job_type_name }}</span>
                                         
                                         <p>Salary: {{ $job->min_salary }} BDT - {{ $job->max_salary	}} BDT</p>
                                     </div>
@@ -262,7 +263,7 @@
                                         <p class="text-muted mb-0">
                                             <i class="fas fa-map-marker-alt">
                                             </i>
-                                            New Delhi, India
+                                            {{ $job->countrye->country_name }}, {{ $job->citie->city_name }}
                                         </p>
                                     </div>
                                 </div>
@@ -280,78 +281,23 @@
                                     </p>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <button class="btn btn-outline-primary">
-                                        View details
-                                    </button>
-                                    <button class="btn btn-primary">
+                                    <a href="" class="btn btn-outline-primary">
                                         Apply now
-                                    </button>
+                                    </a>
+                                    <form action="{{ route('apply_job') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="job_id" value="{{ $job->id }}">
+                                        <button class="btn btn-outline-primary" type="submit">
+                                            Apply now
+                                        </button>
+                                    </form>
                                 </div>
                             
                             </div>
-                        @endforeach
+                        
                     </div>
 
-
-
-
-
-
-
-                    <div class="col-md-6">
-                        <div class="job-card">
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <h5>
-                                        Senior UI/UX Designer
-                                    </h5>
-                                    <span class="badge bg-primary">FULL-TIME</span>
-                                    <p>
-                                        Salary: $30,000 - $55,000
-                                    </p>
-                                </div>
-                                <div>
-                                    <i class="far fa-bookmark">
-                                    </i>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <img alt="Apple logo" class="company-logo me-2" height="40"
-                                     src="{{asset('/images/apple-logo 1.png')}}" width="40"/>
-                                <div>
-                                    <p class="mb-0">
-                                        Apple
-                                    </p>
-                                    <p class="text-muted mb-0">
-                                        <i class="fas fa-map-marker-alt">
-                                        </i>
-                                        Boston, USA
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="applicants d-flex pr-2">
-                                    <img alt="Applicant 1" height="30" src="{{asset('/images/Ellipse 6.png')}}"
-                                         width="30"/>
-                                    <img alt="Applicant 2" height="30" src="{{asset('/images/Ellipse 7.png')}}"
-                                         width="30"/>
-                                    <img alt="Applicant 3" height="30" src="{{asset('/images/Ellipse 8.png')}}"
-                                         width="30"/>
-                                </div>
-                                <p class="mb-0 ms-2 px-2">
-                                    9+ applicants
-                                </p>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-outline-primary">
-                                    View details
-                                </button>
-                                <button class="btn btn-primary">
-                                    Apply now
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
 
 
                 </div>

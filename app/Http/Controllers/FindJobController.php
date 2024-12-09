@@ -23,8 +23,8 @@ class FindJobController extends Controller
         $jobtypes = job_types::orderBy('id', 'desc')->get();
         $jobroles = Job_Role::orderBy('id', 'desc')->get();
         $jobLevels = experience_level::orderBy('id', 'desc')->get();
-        $jobs = Job::orderBy('id', 'desc')->paginate(10); // Fetch latest jobs with pagination
+        $jobs = Job::with('citie','countrye','jobtypes')->orderBy('id', 'desc')->paginate(6); // Fetch latest jobs with pagination
 
-        return view('pages.findjob', compact('jobs'));
+        return view('pages.findjob', compact('jobs','cityname','countrye','jobtypes'));
     }
 }

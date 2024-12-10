@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/toastify.min.css')}}">
+    
+
     <title>Job Portal | {{   $title ?? config('app.name') }}</title>
 </head>
 <body>
@@ -29,6 +31,9 @@
 <script src="{{asset('js/custom.js')}}"></script>
 <script src="{{asset('js/axios.min.js')}}"></script>
 <script src="{{asset('js/toastify-js.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.all.min.js"></script>
+
+
 </body>
 </html>
 

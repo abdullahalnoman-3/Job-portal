@@ -101,10 +101,11 @@ Route::middleware(TokenVerificationMiddleware::class)->group(function () {
 
         Route::get('/findjob', [FindJobController::class, 'jobs_data'])->name('findjob');
 
-        Route::post('/apply_job', [ApplyController::class, 'applyForm'])->name('apply_job');
+        Route::post('/apply_job_form', [ApplyController::class, 'applyForm'])->name('applyForm');  
+        Route::post('/apply_job', [ApplyController::class, 'store'])->name('apply_job');
        
 
-        Route::post('/apply_job', [ApplyController::class, 'store'])->name('apply_job');
+    
 
 
 

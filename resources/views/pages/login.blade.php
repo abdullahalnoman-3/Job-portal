@@ -94,6 +94,7 @@
 </div>
 
 <script>
+    successToast(123);
     async function SubmitLogin(){
         
         let email = document.getElementById('email').value;

@@ -284,7 +284,7 @@
                                     <a href="" class="btn btn-outline-primary">
                                         Apply now
                                     </a>
-                                    <form action="{{ route('apply_job') }}" method="POST">
+                                    <form action="{{ route('applyForm') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="job_id" value="{{ $job->id }}">
                                         <button class="btn btn-outline-primary" type="submit">

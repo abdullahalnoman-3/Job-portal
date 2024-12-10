@@ -29,6 +29,9 @@
 <script src="{{asset('js/custom.js')}}"></script>
 <script src="{{asset('js/axios.min.js')}}"></script>
 <script src="{{asset('js/toastify-js.js')}}"></script>
+
+
+
 </body>
 </html>
 

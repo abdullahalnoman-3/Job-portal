@@ -46,7 +46,7 @@ public function store(Request $request)
     ]);
 
     // Redirect with success message
-    return redirect()->back()->with('success', 'Your application has been submitted successfully!');
+    return redirect()->route('findjob')->with('success', 'Your application has been submitted successfully!');
 }
 
 

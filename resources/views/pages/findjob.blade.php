@@ -276,13 +276,17 @@
                                     </p>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <a href="" class="btn btn-outline-primary">
-                                        Apply now
-                                    </a>
-                                    <form action="{{ route('applyForm') }}" method="POST">
+                                    <form action="{{ route('jobViewDetails') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="job_id" value="{{ $job->id }}">
                                         <button class="btn btn-outline-primary" type="submit">
+                                            View details
+                                        </button>
+                                    </form>
+                                    <form action="{{ route('applyForm') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="job_id" value="{{ $job->id }}">
+                                        <button class="btn btn-primary" type="submit">
                                             Apply now
                                         </button>
                                     </form>

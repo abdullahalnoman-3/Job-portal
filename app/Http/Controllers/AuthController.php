@@ -232,7 +232,7 @@ class AuthController extends Controller
             return view('pages.employer.dashboard');
         }
         else{
-            return view('pages.frontend.dashboard');
+            return view('pages.user.user_dash');
         }
     }
 

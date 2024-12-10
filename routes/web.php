@@ -47,6 +47,9 @@ Route::get('/reset-password', [AuthController::class, 'resetPasswordPage'])->nam
     ->middleware(TokenVerificationMiddleware::class);
 
 
+Route::get('/findjob', [FindJobController::class, 'jobs_data'])->name('findjob');
+Route::post('/job-view-details-page', [JobController::class, 'jobViewDetails'])->name('jobViewDetails');
+
 
 Route::middleware(TokenVerificationMiddleware::class)->group(function () {
 
@@ -99,7 +102,7 @@ Route::middleware(TokenVerificationMiddleware::class)->group(function () {
     Route::middleware(['user'])->group(function () {
 
 
-        Route::get('/findjob', [FindJobController::class, 'jobs_data'])->name('findjob');
+        // Route::get('/findjob', [FindJobController::class, 'jobs_data'])->name('findjob');
 
         Route::post('/apply_job_form', [ApplyController::class, 'applyForm'])->name('applyForm');  
         Route::post('/apply_job', [ApplyController::class, 'store'])->name('apply_job');

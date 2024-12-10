@@ -28,8 +28,14 @@
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary">Submit Application</button>
+        <button onclick="JobApply()" type="submit" class="btn btn-primary">Submit Application</button>
     </form>
 </div>
+
+<script>
+    async function JobApply(){
+        successToast('Your application has been submitted successfully!')
+    }
+</script>
 
 @endSection

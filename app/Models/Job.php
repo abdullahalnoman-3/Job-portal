@@ -20,7 +20,7 @@ class Job extends Model
         'experience_level_id', 'country_id',   
         'city_id', 'description',   
         'user_id', 'contact_email',  
-        'company_name', 'company_website', 
+        'company_name', 'company_website', 'job_tags',
     ];
     public function citie()
         {

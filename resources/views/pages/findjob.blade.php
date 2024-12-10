@@ -17,27 +17,22 @@
 
             <div class="container">
                 <div class="search-container">
-                    <div class="input-group">
-                    <span class="input-group-text">
-                        <i class="fas fa-search" style="color: #5e6670;"></i>
-                    </span>
-                        <input type="text" class="form-control" placeholder="Job title, Keyword..." aria-label="Job title, Keyword...">
-                    </div>
-                    <div class="divider"></div>
-                    <div class="input-group">
-                    <span class="input-group-text">
-                        <i class="fas fa-map-marker-alt" style="color: #5e6670;"></i>
-                    </span>
-                        <input type="text" class="form-control" placeholder="Location" aria-label="Location">
-                    </div>
-
-                    <div class="input-group">
-                    <span class="input-group-text">
-                        <i class="fas fa-briefcase" style="color: #5e6670;"></i>
-                    </span>
-                        <input type="text" class="form-control experience-input" placeholder="Years of experience" aria-label="Location">
-                    </div>
-                    <button class="btn job-search-btn">Search</button>
+                    <form method="GET" action="{{ route('findjob') }}">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="text" name="job_title" class="form-control" placeholder="Job title, Keyword..." value="{{ request('job_title') }}">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" name="location" class="form-control" placeholder="Location" value="{{ request('location') }}">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="number" name="experience" class="form-control" placeholder="Years of experience" value="{{ request('experience') }}">
+                            </div>
+                            <div class="col-md-12 text-end mt-3">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
 

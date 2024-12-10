@@ -14,25 +14,25 @@ use Illuminate\Http\Request;
 class FindJobController extends Controller
 {
 
-    // Show job search page
+    
     public function jobs_data(Request $request)
     {
-        // সার্চ ইনপুটগুলি ধরুন
-        $searchTitle = $request->input('job_title'); // Job title বা keyword
-        $searchLocation = $request->input('location'); // Location
-        $searchExperience = $request->input('experience'); // Years of experience
+        
+        $searchTitle = $request->input('job_title'); 
+        $searchLocation = $request->input('location'); 
+        $searchExperience = $request->input('experience'); 
     
-        // ডাটাবেস থেকে সিটি, দেশ, জব ফাংশন, টাইপ, রোল এবং লেভেল ফেচ করুন
+        
         $cityname = citie::orderBy('id', 'desc')->get();
         $countrye = countrie::orderBy('id', 'desc')->get();
         $jobtypes = job_types::orderBy('id', 'desc')->get();
     
         // Jobs query
+        
         $jobsQuery = Job::with('citie', 'countrye', 'jobtypes')->orderBy('id', 'desc');
 
-        // সার্চ ফিল্টার অ্যাপ্লাই করুন
         if ($searchTitle) {
-            $jobsQuery->where('job_tags', 'like', '%' . $searchTitle . '%'); // এখানে title এর পরিবর্তে job_tags ব্যবহার করা হয়েছে
+            $jobsQuery->where('job_tags', 'like', '%' . $searchTitle . '%'); 
         }
         
         if ($searchLocation) {
@@ -45,10 +45,10 @@ class FindJobController extends Controller
             $jobsQuery->where('experience', '<=', $searchExperience);
         }
         
-        // ফিল্টার করা জব ফেচ করুন
+      
         $jobs = $jobsQuery->paginate();
         
-        // ভিউতে ডেটা পাঠান
+      
         return view('pages.findjob', compact('jobs', 'cityname', 'countrye', 'jobtypes'));
     }
     

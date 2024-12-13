@@ -1,7 +1,6 @@
 @extends('layout.app',['title' => 'Find Job'])
 
 @section('content')
-
     <div class="container mt-5">
         <div class="text-center mb-4">
             <h1 class="fw-bold job-search-title">
@@ -12,9 +11,7 @@
             </p>
         </div>
         {{--        Search area start--}}
-
         <div style="padding: 50px;">
-
             <div class="container">
                 <div class="search-container">
                     <form method="GET" action="{{ route('findjob') }}">
@@ -37,11 +34,7 @@
             </div>
 
         </div>
-
         {{--        Search area end--}}
-
-
-
         <div class="row">
             <div class="col-md-3">
                 <div id="jobfilter" class="filter-section">
@@ -206,32 +199,24 @@
                         All Jobs (2310)
                     </h5>
                     <div class="dropdown">
-                        <button aria-expanded="false" class="btn btn-outline-secondary dropdown-toggle"
-                                data-bs-toggle="dropdown" id="dropdownMenuButton" type="button">
-                            Popular
-                        </button>
-                        <ul aria-labelledby="dropdownMenuButton" class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Popular
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Newest
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Oldest
-                                </a>
-                            </li>
-                        </ul>
+                    <form method="GET" action="{{ url()->current() }}">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5>Sort Jobs</h5>
+                            <div class="dropdown">
+                                <select name="order_by" class="form-select me-2" onchange="this.form.submit()">
+                                    <option value="desc" {{ request('order_by') == 'desc' ? 'selected' : '' }}>Newest</option>
+                                    <option value="asc" {{ request('order_by') == 'asc' ? 'selected' : '' }}>Oldest</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Hidden Fields for Existing Filters -->
+                        @foreach(request()->except('order_by') as $key => $value)
+                            <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+                        @endforeach
+                    </form>
                     </div>
                 </div>
-
                 <!-- job card -->
-
                 <div class="row">
                 @foreach ($jobs as $job)
                     <div class="col-md-6">
@@ -300,8 +285,6 @@
 
 
                 </div>
-
-
                 <div class="view-all">
                     <a href="#">
                         View More

@@ -230,7 +230,15 @@
                                         <p>Salary: {{ $job->min_salary }} BDT - {{ $job->max_salary	}} BDT</p>
                                     </div>
                                     <div>
-                                        <i class="far fa-bookmark"></i>
+                                    <form action="{{ route('save_jobs') }}" method="POST">
+                                     @csrf
+                                        <input type="hidden" name="job_id" value="{{ $job->id }}">
+
+                                        <button type="submit" style="background: none; border: none; cursor: pointer;">
+                                            <i class="fa fa-bookmark" style="font-size: 20px; color: #333;"></i>
+                                        </button>
+                                    </form>
+
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center mb-3">

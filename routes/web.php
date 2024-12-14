@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FindJobController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\save_jobs;
 use App\Http\Middleware\TokenVerificationMiddleware;
 
 /*
@@ -106,7 +107,8 @@ Route::middleware(TokenVerificationMiddleware::class)->group(function () {
 
         Route::post('/apply_job_form', [ApplyController::class, 'applyForm'])->name('applyForm');  
         Route::post('/apply_job', [ApplyController::class, 'store'])->name('apply_job');
-       
+        Route::post('/save_jobs', [save_jobs::class, 'saveJob'])->name('save_jobs');
+
 
     
 

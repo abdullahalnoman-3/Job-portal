@@ -9,17 +9,21 @@ use Illuminate\Http\Request;
 
 class ApplyController extends Controller
 {
-    public function applyForm(Request $request)
-{
-   
-    $job = Job::findOrFail($request->job_id); 
-    $email = $request->header('email');
-    $userId = $request->header('id');
 
-    $user = User::findOrFail($userId);
-   
-    return view('pages.user.job_apply', compact('job','email','user'));
-}
+
+
+public function applyForm(Request $request)
+
+        {
+        
+            $job = Job::findOrFail($request->job_id); 
+            $email = $request->header('email');
+            $userId = $request->header('id');
+
+            $user = User::findOrFail($userId);
+        
+            return view('pages.user.job_apply', compact('job','email','user'));
+        }
 
 
 

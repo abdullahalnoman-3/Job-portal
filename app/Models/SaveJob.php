@@ -11,4 +11,10 @@ class SaveJob extends Model
     protected $table = 'save_jobs';
 
     protected $fillable = ['user_id', 'job_id'];
+
+
+    public function job()
+    {
+        return $this->belongsTo(Job::class, 'job_id', 'id');
+    }
 }

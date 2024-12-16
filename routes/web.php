@@ -4,10 +4,12 @@ use App\Http\Controllers\admin_dropdown_input;
 use App\Http\Controllers\ApplyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\brows_company;
 use App\Http\Controllers\FindJobController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\save_jobs;
+use App\Http\Controllers\user_apply_job;
 use App\Http\Controllers\user_save_job;
 use App\Http\Middleware\TokenVerificationMiddleware;
 
@@ -106,6 +108,8 @@ Route::middleware(TokenVerificationMiddleware::class)->group(function () {
 
         // Route::get('/findjob', [FindJobController::class, 'jobs_data'])->name('findjob');
         Route::get('/user_save_job', [user_save_job::class, 'user_save_job'])->name('user_save_job');
+        Route::get('/user_apply_job', [user_apply_job::class, 'user_apply_job'])->name('user_apply_job');
+        Route::get('/brows_company', [brows_company::class, 'brows_company'])->name('brows_company');
 
         Route::post('/apply_job_form', [ApplyController::class, 'applyForm'])->name('applyForm');  
         Route::post('/apply_job', [ApplyController::class, 'store'])->name('apply_job');

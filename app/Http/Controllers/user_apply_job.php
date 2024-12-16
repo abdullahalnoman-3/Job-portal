@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SaveJob;
+use App\Models\Application;
+use App\Models\applications;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class user_save_job extends Controller
+class user_apply_job extends Controller
 {
-    public function user_save_job(Request $request)
+    public function user_apply_job(Request $request)
     {
         
         $userId = $request->header('id');
@@ -19,12 +19,12 @@ class user_save_job extends Controller
         }
 
         // সেভ করা জব
-        $userSaveJobs = SaveJob::with('job') 
+        $userApplyJobs = Application::with('job') 
             ->where('user_id', $userId)
             ->orderBy('id', 'desc')
             ->get();
 
         
-        return view('pages.user.user_save_job', compact('userSaveJobs'));
+        return view('pages.user.user_apply_job', compact('userApplyJobs'));
     }
 }

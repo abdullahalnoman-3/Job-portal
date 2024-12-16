@@ -1,4 +1,4 @@
-@extends('layout.app',['title' => 'Find Job'])
+@extends('layout.app',['title' => 'Apply'])
 
 @section('content')
 

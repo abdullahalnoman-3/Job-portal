@@ -12,8 +12,11 @@
         <i class="bi bi-gear" style="margin-right: 10px;"></i> Save Job 
       </a>
 
-      <a href="{{route('manage_city_name')}}" style="display: block; text-decoration: none; color: white; padding: 15px 20px; font-weight: 600; background-color: transparent;">
-        <i class="bi bi-gear" style="margin-right: 10px;"></i> Apply
+      <a href="{{route('user_apply_job')}}" style="display: block; text-decoration: none; color: white; padding: 15px 20px; font-weight: 600; background-color: transparent;">
+        <i class="bi bi-gear" style="margin-right: 10px;"></i> Apply Jobs
+      </a>
+      <a href="{{route('brows_company')}}" style="display: block; text-decoration: none; color: white; padding: 15px 20px; font-weight: 600; background-color: transparent;">
+        <i class="bi bi-gear" style="margin-right: 10px;"></i> Brows Company
       </a>
     </div>
   </div>

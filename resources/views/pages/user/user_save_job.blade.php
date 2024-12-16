@@ -1,8 +1,7 @@
-@extends('layout.app',['title' => 'Find Job'])
+@extends('layout.user.user_layout',['title' => 'Save Job'])
 
 @section('content')
 
-<h1>hello all</h1>
 <div class="container">
     <h3>Your Saved Jobs</h3>
 
@@ -10,12 +9,13 @@
         <p>You have not saved any jobs yet.</p>
     @else
         <div class="row">
-            @foreach($userSaveJobs as $job)
+            @foreach($userSaveJobs as $saveJob)
                 <div class="col-md-4 mb-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Job ID: {{ $job->job_id }}</h5>
-                            <p class="card-text">Saved on: {{ $job->created_at->format('d M, Y') }}</p>
+                            
+                            <h5 class="card-title">{{ $saveJob->job->job_title ?? 'Job Not Found' }}</h5>
+                            <p class="card-text">Saved on: {{ $saveJob->created_at->format('d M, Y') }}</p>
                         </div>
                     </div>
                 </div>

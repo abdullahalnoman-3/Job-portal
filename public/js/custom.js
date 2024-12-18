@@ -69,4 +69,16 @@ function errorToast(msg) {
         }
     }).showToast();
 }
+
+function infoToast(msg) {
+    Toastify({
+        gravity: "bottom", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        text: msg,
+        className: "mb-5",
+        style: {
+            background: "gray",
+        }
+    }).showToast();
+}
 // ------------------Toast Messages------------------------

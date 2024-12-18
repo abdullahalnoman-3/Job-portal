@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SaveJob;
 use Illuminate\Http\Request;
+use App\Helper\ResponseHelper;
 use Illuminate\Support\Facades\Auth;
 
 class save_jobs extends Controller
@@ -15,7 +16,8 @@ class save_jobs extends Controller
 
         // Validate data
         if (!$userId || !$jobId) {
-            return back()->with('error', 'User ID and Job ID are required.');
+            // return back()->with('error', 'User ID and Job ID are required.');
+            return ResponseHelper::Out('error', 'Something went wrong', 200);
         }
 
         // Check if the job is already saved
@@ -24,7 +26,8 @@ class save_jobs extends Controller
             ->exists();
 
         if ($alreadySaved) {
-            return back()->with('message', 'Job already saved.');
+            // return back()->with('message', 'Job already saved.');
+            return ResponseHelper::Out('info', 'Job already saved.', 200);
         }
         // Save the job
         SaveJob::create([
@@ -32,6 +35,7 @@ class save_jobs extends Controller
             'job_id' => $jobId,
         ]);
 
-        return back()->with('message', 'Job saved successfully.');
+        // return back()->with('message', 'Job saved successfully.');
+        return ResponseHelper::Out('success', 'Job saved successfully.', 200);
     }
 }

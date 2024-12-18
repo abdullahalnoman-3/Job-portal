@@ -230,14 +230,14 @@
                                         <p>Salary: {{ $job->min_salary }} BDT - {{ $job->max_salary	}} BDT</p>
                                     </div>
                                     <div>
-                                    <form action="{{ route('save_jobs') }}" method="POST">
-                                     @csrf
+                                    {{-- <form action="{{ route('save_jobs') }}" method="POST"> --}}
+                                     {{-- @csrf --}}
                                         <input type="hidden" name="job_id" value="{{ $job->id }}">
 
-                                        <button type="submit" style="background: none; border: none; cursor: pointer;">
+                                        <button onclick="SaveJob({{ $job->id }})" type="submit" style="background: none; border: none; cursor: pointer;" >
                                             <i class="fa fa-bookmark" style="font-size: 20px; color: #333;"></i>
                                         </button>
-                                    </form>
+                                    {{-- </form> --}}
 
                                     </div>
                                 </div>
@@ -301,5 +301,24 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+        async function SaveJob(jobId){
+
+            let res = await axios.post('/save_jobs', {job_id: jobId});
+
+            if(res.status === 200 && res.data['message'] === 'success'){
+                successToast(res.data['data']);
+            }
+            else if(res.status === 200 && res.data['message'] === 'info'){
+                infoToast(res.data['data']);
+            }
+            else{
+                errorToast(res.data['data']);
+            }
+        }
+
+    </script>
 
 @endSection

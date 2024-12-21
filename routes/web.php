@@ -30,7 +30,7 @@ Route::get('/', [PageController::class, 'homePage'])->name('home');
 Route::get('/about', [PageController::class, 'aboutPage'])->name('about');
 Route::get('/admin', [PageController::class, 'adminPage'])->name('admin');
 Route::get('/employer', [PageController::class, 'employerPage'])->name('employers');
-Route::get('/findjob', [PageController::class, 'findJobPage'])->name('findjob');
+// Route::get('/findjob', [PageController::class, 'findJobPage'])->name('findjob');
 Route::get('/about', [PageController::class, 'aboutusPage'])->name('about');
 Route::get('/contact', [PageController::class, 'contactusPage'])->name('contact');
 
@@ -51,9 +51,10 @@ Route::get('/reset-password', [AuthController::class, 'resetPasswordPage'])->nam
     ->middleware(TokenVerificationMiddleware::class);
 
 
-Route::get('/findjob', [FindJobController::class, 'jobs_data'])->name('findjob');
+// Route::get('/findjob', [FindJobController::class, 'jobs_data'])->name('findjob');
 Route::post('/job-view-details-page', [JobController::class, 'jobViewDetails'])->name('jobViewDetails');
-
+Route::get('/findjob', [FindJobController::class, 'findJobsPageWithFilters'])->name('findjob');
+Route::post('/jobs-with-filters-api', [FindJobController::class, 'findJobsWithFilters']);
 
 Route::middleware(TokenVerificationMiddleware::class)->group(function () {
 

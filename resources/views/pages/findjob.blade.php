@@ -14,22 +14,22 @@
         <div style="padding: 50px;">
             <div class="container">
                 <div class="search-container">
-                    <form method="GET" action="{{ route('findjob') }}">
+
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="text" name="job_title" class="form-control" placeholder="Job title, Keyword..." value="{{ request('job_title') }}">
+                                <input type="text" name="job_title" class="form-control" placeholder="Job title, Keyword..." id="jobTitleFilter">
                             </div>
                             <div class="col-md-4">
-                                <input type="text" name="location" class="form-control" placeholder="Location" value="{{ request('location') }}">
+                                <input type="text" name="location" class="form-control" placeholder="Location" id="jobLocationFilter">
                             </div>
                             <div class="col-md-4">
-                                <input type="number" name="experience" class="form-control" placeholder="Years of experience" value="{{ request('experience') }}">
+                                <input type="number" name="experience" class="form-control" placeholder="Years of experience" id="jobYearsOfExperienceFilter">
                             </div>
                             <div class="col-md-12 text-end mt-3">
-                                <button type="submit" class="btn btn-primary">Search</button>
+                                <button type="submit" class="btn btn-primary" onclick="jobList()">Search</button>
                             </div>
                         </div>
-                    </form>
+
                 </div>
             </div>
 
@@ -46,8 +46,8 @@
                             Salary Range
                         </label>
                         <div class="d-flex">
-                            <input class="form-control me-2" placeholder="Min" type="text"/>
-                            <input class="form-control" placeholder="Max" type="text"/>
+                            <input class="form-control me-2" placeholder="Min" id="jobSalaryMin" type="number"/>
+                            <input class="form-control" placeholder="Max" id="jobSalaryMax" type="number"/>
                         </div>
                     </div>
                     <hr>
@@ -193,116 +193,131 @@
                     </a>
                 </div>
             </div>
+
             <div class="col-md-9">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5>
                         All Jobs (2310)
                     </h5>
                     <div class="dropdown">
-                    <form method="GET" action="{{ url()->current() }}">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h5>Sort Jobs</h5>
                             <div class="dropdown">
-                                <select name="order_by" class="form-select me-2" onchange="this.form.submit()">
-                                    <option value="desc" {{ request('order_by') == 'desc' ? 'selected' : '' }}>Newest</option>
-                                    <option value="asc" {{ request('order_by') == 'asc' ? 'selected' : '' }}>Oldest</option>
+                                <select name="order_by" class="form-select me-2" id="orderType" onchange="jobList()">
+                                    <option value="desc">Newest</option>
+                                    <option value="asc">Oldest</option>
                                 </select>
                             </div>
                         </div>
-                        <!-- Hidden Fields for Existing Filters -->
-                        @foreach(request()->except('order_by') as $key => $value)
-                            <input type="hidden" name="{{ $key }}" value="{{ $value }}">
-                        @endforeach
-                    </form>
+                      
                     </div>
                 </div>
+
                 <!-- job card -->
-                <div class="row">
-                @foreach ($jobs as $job)
-                    <div class="col-md-6">
-                        
-                            <div class="job-card">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <h5>{{ $job->job_title }}</h5>
-                                        <span class="badge bg-success">{{ $job->jobtypes->job_type_name }}</span>
-                                        
-                                        <p>Salary: {{ $job->min_salary }} BDT - {{ $job->max_salary	}} BDT</p>
-                                    </div>
-                                    <div>
-                                    {{-- <form action="{{ route('save_jobs') }}" method="POST"> --}}
-                                     {{-- @csrf --}}
-                                        <input type="hidden" name="job_id" value="{{ $job->id }}">
-
-                                        <button onclick="SaveJob({{ $job->id }})" type="submit" style="background: none; border: none; cursor: pointer;" >
-                                            <i class="fa fa-bookmark" style="font-size: 20px; color: #333;"></i>
-                                        </button>
-                                    {{-- </form> --}}
-
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center mb-3">
-                                    <img alt="Google Inc. logo" class="company-logo me-2" height="40"
-                                        src="{{asset('/images/google.png')}}" width="40"/>
-                                    <div>
-                                        <p class="mb-0">
-                                        {{ $job->company_name }}
-                                        </p>
-                                        <p class="text-muted mb-0">
-                                            <i class="fas fa-map-marker-alt">
-                                            </i>
-                                            {{ $job->countrye->country_name }}, {{ $job->citie->city_name }}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="applicants d-flex pr-2">
-                                        <img alt="Applicant 1" height="30" src="{{asset('/images/Ellipse 6.png')}}"
-                                            width="30"/>
-                                        <img alt="Applicant 2" height="30" src="{{asset('/images/Ellipse 7.png')}}"
-                                            width="30"/>
-                                        <img alt="Applicant 3" height="30" src="{{asset('/images/Ellipse 8.png')}}"
-                                            width="30"/>
-                                    </div>
-                                    <p class="mb-0 ms-2 px-2">
-                                        10+ applicants
-                                    </p>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <form action="{{ route('jobViewDetails') }}" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="job_id" value="{{ $job->id }}">
-                                        <button class="btn btn-outline-primary" type="submit">
-                                            View details
-                                        </button>
-                                    </form>
-                                    <form action="{{ route('applyForm') }}" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="job_id" value="{{ $job->id }}">
-                                        <button class="btn btn-primary" type="submit">
-                                            Apply now
-                                        </button>
-                                    </form>
-                                </div>
-                            
-                            </div>
-                        
-                    </div>
-
-                    @endforeach
-
+                <div class="row" id="jobCard">
 
                 </div>
+
                 <div class="view-all">
                     <a href="#">
                         View More
                     </a>
                 </div>
+                
             </div>
+
         </div>
     </div>
 
     <script>
+
+        jobList();
+
+        async function jobList(){
+
+            let orderType = document.getElementById('orderType').value;
+            let jobTitleFilter = document.getElementById('jobTitleFilter').value;
+            let jobLocationFilter = document.getElementById('jobLocationFilter').value;
+            let jobYearsOfExperienceFilter = document.getElementById('jobYearsOfExperienceFilter').value;
+            
+
+            
+            let jobSalaryMin = document.getElementById('jobSalaryMin').value;
+            let jobSalaryMax = document.getElementById('jobSalaryMax').value;
+
+            let res = await axios.post("/jobs-with-filters-api", {
+                order_by: orderType,
+                job_title: jobTitleFilter,
+                location: jobLocationFilter,
+                experience: jobYearsOfExperienceFilter,
+                minSalary: jobSalaryMin,
+                maxSalary: jobSalaryMax
+            });
+
+            let jobCard = $("#jobCard");
+
+            jobCard.empty();
+
+            res.data.data.forEach(function(job) {
+                
+                let card = `<div class="col-md-6">
+                                        <div class="job-card">
+
+                                            <div class="d-flex justify-content-between">
+                                                
+                                                <div>
+                                                    <h5>${job['job_title']}</h5>
+                                                    <span class="badge bg-success">${job['jobtypes']['job_type_name']}</span>
+                                                    <p>Salary: ${job['min_salary']} BDT - ${job['max_salary']} BDT</p>
+                                                </div>
+
+                                                <div>
+                                                    <button onclick="SaveJob(${job['id']})" type="submit" style="background: none; border: none; cursor: pointer;" >
+                                                        <i class="fa fa-bookmark" style="font-size: 20px; color: #333;"></i>
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                            
+                                            <div class="d-flex align-items-center mb-3">
+                                                <img alt="Google Inc. logo" class="company-logo me-2" height="40" src="{{asset('/images/google.png')}}" width="40"/>
+                                                <div>
+                                                    <p class="mb-0">${job['company_name']}</p>
+                                                    <p class="text-muted mb-0">
+                                                        <i class="fas fa-map-marker-alt"></i>${job['citie']['city_name']}, ${job['countrye']['country_name']}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="applicants d-flex pr-2">
+                                                    <img alt="Applicant 1" height="30" src="{{asset('/images/Ellipse 6.png')}}" width="30"/>
+                                                    <img alt="Applicant 2" height="30" src="{{asset('/images/Ellipse 7.png')}}" width="30"/>
+                                                    <img alt="Applicant 3" height="30" src="{{asset('/images/Ellipse 8.png')}}" width="30"/>
+                                                </div>
+                                                <p class="mb-0 ms-2 px-2">10+ applicants</p>
+                                            </div>
+                                        
+                                            <div class="d-flex justify-content-between">
+                                                <form action="{{ route('jobViewDetails') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="job_id" value="${job['id']}">
+                                                    <button class="btn btn-outline-primary" type="submit">View details</button>
+                                                </form>
+                                            
+                                                <form action="{{ route('applyForm') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="job_id" value="${job['id']}">
+                                                    <button class="btn btn-primary" type="submit">Apply now</button>
+                                                </form>
+                                            </div>
+                                        
+                                        </div>
+                                    </div>`
+
+                jobCard.append(card);
+            });
+        }
 
         async function SaveJob(jobId){
 
@@ -314,8 +329,11 @@
             else if(res.status === 200 && res.data['message'] === 'info'){
                 infoToast(res.data['data']);
             }
-            else{
+            else if(res.status === 200 && res.data['message'] === 'error'){
                 errorToast(res.data['data']);
+            }
+            else{
+                window.location.href = '/login';
             }
         }
 

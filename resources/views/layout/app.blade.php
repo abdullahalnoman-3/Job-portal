@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/toastify.min.css')}}">
     <title>Job Portal | {{   $title ?? config('app.name') }}</title>
+
+    <script src="{{asset('js/axios.min.js')}}"></script>
+    <script src="{{asset('js/jquery-3.7.0.min.js')}}"></script>
 </head>
 <body>
 
@@ -22,7 +25,6 @@
 
 <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
-<script src="{{asset('js/axios.min.js')}}"></script>
 <script src="{{asset('js/toastify-js.js')}}"></script>
 </body>
 </html>

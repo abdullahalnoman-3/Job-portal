@@ -30,13 +30,13 @@
                 </li>
             </ul>
             <form class="d-flex nav-button">
-                <button class="btn-outline me-2" type="submit" formaction="{{ route('contact') }}">Contact Us</button>
 
                 @if (Cookie::get('token') !== null)
-                    <button class="btn btn-violet" type="submit"
+                    <button class="btn btn-violet mx-2" type="submit"
                         formaction="{{ url('/dashboard') }}">Dashboard</button>
                     <button class="btn btn-secondary" type="submit" formaction="{{ url('/api/logout') }}">Logout</button>
                 @else
+                    <button class="btn-outline me-2" type="submit" formaction="{{ route('contact') }}">Contact Us</button>    
                     <button class="btn btn-violet" type="submit" formaction="{{ route('login') }}">Login</button>
                 @endif
 

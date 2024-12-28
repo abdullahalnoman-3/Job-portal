@@ -1,4 +1,4 @@
-@extends('layout.app', ['title' => 'Employers'])
+@extends('layout.employer.employer_layout', ['title' => 'Employers'])
 
 @section('content')
     <div class="container form-container my-5">

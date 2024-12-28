@@ -32,7 +32,7 @@
             <form class="d-flex nav-button">
 
                 @if (Cookie::get('token') !== null)
-                    <button class="btn btn-violet" type="submit"
+                    <button class="btn btn-violet mx-2" type="submit"
                             formaction="{{ url('/dashboard') }}">Dashboard</button>
                     <button class="btn btn-secondary" type="submit" formaction="{{ url('/api/logout') }}">Logout</button>
                 @else

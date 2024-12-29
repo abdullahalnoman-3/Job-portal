@@ -16,7 +16,7 @@
 
 @include('layout.user.user_header')
 
-<div class="d-flex" id="wrapper" style="display: flex; flex-wrap: nowrap; height: 100vh;">
+<div class="d-flex" id="wrapper" style="display: flex; flex-wrap: nowrap; min-height: 100vh;">
     @include('pages.user.user_sidebar')
     @yield('content')
 </div>
